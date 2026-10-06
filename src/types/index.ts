@@ -1,1 +1,1 @@
-export { type Card, Rank, Suit, type Deck } from './card'
+export { type Card, Rank, Suit, type RankType, type SuitType, type Deck } from './card'

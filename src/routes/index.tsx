@@ -1,19 +1,6 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
-import type { FC } from 'react';
-import { createRandomCode } from '../lib/game_util';
+import { createFileRoute } from '@tanstack/react-router'
+import { HomePage } from '../pages/HomePage'
 
-interface Props { }
-
-const HomePage: FC<Props> = () => {
-
-  return (
-    <>
-      Play Random Game: <Link to={"/play"} search={{
-        code: createRandomCode(),
-      }}><button>Go</button></Link>
-    </>
-  );
-};
 
 export const Route = createFileRoute('/')({
   component: HomePage,

@@ -10,43 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PlayRouteImport } from './routes/play'
+import { Route as AcesHighRouteImport } from './routes/aces-high'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PlayRoute = PlayRouteImport.update({
-  id: '/play',
-  path: '/play',
+const AcesHighRoute = AcesHighRouteImport.update({
+  id: '/aces-high',
+  path: '/aces-high',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/play': typeof PlayRoute
+  '/aces-high': typeof AcesHighRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/play': typeof PlayRoute
+  '/aces-high': typeof AcesHighRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/play': typeof PlayRoute
+  '/aces-high': typeof AcesHighRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/play'
+  fullPaths: '/' | '/aces-high'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/play'
-  id: '__root__' | '/' | '/play'
+  to: '/' | '/aces-high'
+  id: '__root__' | '/' | '/aces-high'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  PlayRoute: typeof PlayRoute
+  AcesHighRoute: typeof AcesHighRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,11 +58,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/play': {
-      id: '/play'
-      path: '/play'
-      fullPath: '/play'
-      preLoaderRoute: typeof PlayRouteImport
+    '/aces-high': {
+      id: '/aces-high'
+      path: '/aces-high'
+      fullPath: '/aces-high'
+      preLoaderRoute: typeof AcesHighRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -70,7 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  PlayRoute: PlayRoute,
+  AcesHighRoute: AcesHighRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
